@@ -78,4 +78,14 @@ public class UserController {
                     .filter(u ->u.getEmail().equalsIgnoreCase(email)).toList();
             return ResponseEntity.ok(users);
         }
+
+     // can we use all the annotation together ?
+            // yes
+        @GetMapping("/info/{id}")
+    public String getInfo(@PathVariable int id,
+                          @RequestParam String name,
+                          @RequestHeader("User-Agent") String userAgent){
+         return "User-Agent " +userAgent + " : " + id + " : "+ name;
+        }
 }
+
